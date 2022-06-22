@@ -1,5 +1,3 @@
-using JsonExtention;
-using JsonExtention.Extentions;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +6,7 @@ namespace JsonExtentionTest.Shared;
 /// <summary>
 /// テスト用サンプルクラス
 /// </summary>
-public class WeatherForecastNullable : IJsonClass
+public class WeatherForecastNullable
 {
   public DateTimeOffset? Date { get; set; }
   public int? TemperatureCelsius { get; set; }

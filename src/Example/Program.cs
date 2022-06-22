@@ -1,12 +1,11 @@
-﻿using JsonExtention;
-using JsonExtention.Extentions;
+﻿using JsonExtention.Extentions;
 
 namespace Example;
 
 /// <summary>
 /// サンプルクラス
 /// </summary>
-public class WeatherForecast : IJsonClass
+public class WeatherForecast
 {
   public DateTimeOffset Date { get; set; }
   public int TemperatureCelsius { get; set; }
@@ -37,7 +36,7 @@ class Program
     Console.WriteLine($"Serialize[{json}]");
 
     // シリアライズしたJSON文字列をデシアライズ
-    var classInstance = json.Deserialize<WeatherForecast>() ?? new WeatherForecast();
+    var classInstance = json.Deserialize<WeatherForecast>();
 
     // デシアライズ結果を表示
     Console.WriteLine($"Deserialize!");

@@ -10,21 +10,20 @@ public static class JsonExtention
   /// <summary>
   /// JSONシリアライズ
   /// </summary>
-  /// <param name="src">JSON継承用インターフェイスのサブクラスインスタンス</param>
+  /// <param name="src">シリアライズ対象のクラスインスタンス</param>
   /// <returns>JSON文字列</returns>
-  static public string Serialize(this IJsonClass src)
+  static public string Serialize<T>(this T src) where T : class
   {
-    var t = src.GetType();
-    return JsonSerializer.Serialize(Convert.ChangeType(src, t));
+    return JsonSerializer.Serialize(src);
   }
 
   /// <summary>
   /// JSONデシアライズ
   /// </summary>
   /// <param name="src">JSON文字列</param>
-  /// <typeparam name="T">JSON継承用インターフェイスのサブクラス</typeparam>
-  /// <returns>JSON継承用インターフェイスのサブクラスインスタンス</returns>
-  static public T Deserialize<T>(this string src) where T : IJsonClass, new()
+  /// <typeparam name="T">デシアライズ用クラス</typeparam>
+  /// <returns>デシアライズ用クラスのインスタンス</returns>
+  static public T Deserialize<T>(this string src) where T : class, new()
   {
     return JsonSerializer.Deserialize<T>(src) ?? new T();
   }

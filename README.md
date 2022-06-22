@@ -25,17 +25,15 @@ C#でJSON変換を簡単に実装できる簡易ライブラリです。
 
       1. usingの追加します。  
           ```csharp
-          using JsonExtention;
           using JsonExtention.Extentions;
           ```
 
       1. JSON変換したいクラスの定義します。  
-         ※JSON継承用インターフェイス「IJsonClass」を継承します。    
           ```csharp
           /// <summary>
           /// サンプルクラス
           /// </summary>
-          public class WeatherForecast : IJsonClass
+          public class WeatherForecast
           {
             public DateTimeOffset Date { get; set; }
             public int TemperatureCelsius { get; set; }
